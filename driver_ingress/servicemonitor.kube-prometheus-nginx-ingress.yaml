@@ -1,0 +1,24 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  clusterName: ""
+  generation: 1
+  labels:
+    prometheus: kube-prometheus
+  name: kube-prometheus-nginx-ingress
+  namespace: ""
+  resourceVersion: ""
+  selfLink: /apis/monitoring.coreos.com/v1/namespaces/monitoring/servicemonitors/kube-prometheus-nginx-ingress
+  uid: ""
+spec:
+  endpoints:
+  - interval: 30s
+    path: /metrics
+    port: metrics
+  namespaceSelector:
+    matchNames:
+    - kube-system
+    - monitoring
+  selector:
+    matchLabels:
+      app: nginx-ingress
